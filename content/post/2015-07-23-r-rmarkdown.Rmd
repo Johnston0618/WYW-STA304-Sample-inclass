@@ -15,7 +15,7 @@ My abstract. we use @citetidyverse.
 
 
 # Introduction
-My introduction
+My introduction.
 
 # Data introduction
 Introduce the scenario and study obnjective.
