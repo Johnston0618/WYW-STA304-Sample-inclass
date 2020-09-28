@@ -70,7 +70,7 @@ Since most of the variables are categorical variables, bar-plot can be used to s
 Since we use generalized linear model, we should assume all the variables are independent, which would affect our final model. Also, in the dataset, most of the variables are categorical, however, we may cahge some of them to numeric variable such as Age Group, which would help our model be better.
 
 # Appendix
-Code and data supporting this analysis is available at: https://github.com/Johnston0618/WYW-STA304-Sample-inclass
+Code and data supporting this analysis is available at:https://github.com/Johnston0618/WYW-STA304-Sample-inclass
 
 # Reference
 
