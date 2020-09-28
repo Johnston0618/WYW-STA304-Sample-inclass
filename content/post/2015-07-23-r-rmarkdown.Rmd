@@ -19,12 +19,9 @@ The covid-19 has been lasted for a long time around the world.Toronto government
 
 # Data introduction
 
-_id and Assigned_ID are numeric variables, which are just the identical variable, so we will drop them.Outbreak Associated is a categorical variable, which conneted the outbreak of covid-19 and toronto health care service, we will drop it. Age group is a categorical variable and it shows the age of the patients. Nabourhood Name is  categocial variable which shows patients' different society and we will drop it. FSA, Episode date and Reported Date cannot show patients' out come clearly, so drop them. Source of Infection is an important categorical variable, which illustrates potential acquisition sources. Client Gender is categorical variable which shows different gender has different number of patients. Currently hospitalized and ever hospitalized, currently in ICU and ever in ICU, Currently intubated and ever intubated could be divided into three different group  are categorical variables, the two variable in the group can show different distrbution just like the figure in the following. 
+_id and Assigned_ID are numeric variables, which are just the identical variable, so we will drop them.Outbreak Associated is a categorical variable, which conneted the outbreak of covid-19 and toronto health care service, we will drop it. Age group is a categorical variable and it shows the age of the patients. Nabourhood Name is  categocial variable which shows patients' different society and we will drop it. FSA, Episode date and Reported Date cannot show patients' out come clearly, so drop them. Source of Infection is an important categorical variable, which illustrates potential acquisition sources. Client Gender is categorical variable which shows different gender has different number of patients. Currently hospitalized and ever hospitalized, currently in ICU and ever in ICU, Currently intubated and ever intubated could be divided into three different group  are categorical variables, the two variable in the group can show different distrbution just like the figure in the following @CitekeyMisc.
 
-We use @CitekeyMisc.
-
-```{r}
-install.packages("opendatatoronto")
+```{r echo=FALSE}
 library(opendatatoronto)
 library(dplyr)
 library(tidyverse)
@@ -71,6 +68,9 @@ Since most of the variables are categorical variables, bar-plot can be used to s
 
 # Weaknesses
 Since we use generalized linear model, we should assume all the variables are independent, which would affect our final model. Also, in the dataset, most of the variables are categorical, however, we may cahge some of them to numeric variable such as Age Group, which would help our model be better.
+
+# Appendix
+Code and data supporting this analysis is available at: https://github.com/Johnston0618/WYW-STA304-Sample-inclass
 
 # Reference
 
