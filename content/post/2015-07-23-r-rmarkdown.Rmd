@@ -42,25 +42,25 @@ data <- filter(datastore_resources, row_number()==1) %>% get_resource()
 glimpse(data)
 
 par(mfrow = c(2,2))
-ggplot(data = data, aes(x = `Age Group` )) + geom_bar() + theme(text = element_text(size=6))
+ggplot(data = data, aes(x = `Age Group` )) + geom_bar() + labs(title = "P1 Age group") + theme(text = element_text(size=6))
 
-ggplot(data = data, aes(x = `Classification` )) + geom_bar() + theme(text = element_text(size=6))
+ggplot(data = data, aes(x = `Classification` )) + geom_bar() + labs(title = "P2 Classification") + theme(text = element_text(size=6))
 
-ggplot(data = data, aes(x = `Client Gender` )) + geom_bar() + theme(text = element_text(size=6))
+ggplot(data = data, aes(x = `Client Gender` )) + geom_bar() + labs(title = "P3 Client Gender") + theme(text = element_text(size=6))
 
-ggplot(data = data, aes(x = `Source of Infection` )) + geom_bar() + theme(text = element_text(size=6))
+ggplot(data = data, aes(x = `Source of Infection` )) + geom_bar() + labs(title = "P4 Source of Infection") + theme(text = element_text(size=6))
 
 
 par(mfrow = c(3,2))
-ggplot(data = data, aes(x = `Ever Hospitalized` )) + geom_bar() + theme(text = element_text(size=6))
+ggplot(data = data, aes(x = `Ever Hospitalized` )) + geom_bar() + labs(title = "P5 Ever Hospitalized") + theme(text = element_text(size=6))
 
-ggplot(data = data, aes(x = `Currently Hospitalized` )) + geom_bar() + theme(text = element_text(size=6))
+ggplot(data = data, aes(x = `Currently Hospitalized` )) + geom_bar() + labs(title = "P6 Currently Hospitalized") + theme(text = element_text(size=6))
 
-ggplot(data = data, aes(x = `Currently Intubated` )) + geom_bar() + theme(text = element_text(size=6))
+ggplot(data = data, aes(x = `Currently Intubated` )) + geom_bar() + labs(title = "P7 Currently Intubated") + theme(text = element_text(size=6))
 
-ggplot(data = data, aes(x = `Ever in ICU` )) + geom_bar() + theme(text = element_text(size=6))
+ggplot(data = data, aes(x = `Ever in ICU` )) + geom_bar() + labs(title = "P8 Ever in ICU") + theme(text = element_text(size=6))
 
-ggplot(data = data, aes(x = `Ever Intubated` )) + geom_bar() + theme(text = element_text(size=6))
+ggplot(data = data, aes(x = `Ever Intubated` )) + geom_bar() + labs(title = "P9 Ever Intubated") + theme(text = element_text(size=6))
 
 
 ```
