@@ -1,5 +1,5 @@
 ---
-title: "The factors that afeect the covid-19"
+title: "The factors that afect the covid-19"
 author: "YUWEN WU"
 date: 2020-09-26T21:13:14-05:00
 bibliography: "references.bib"
