@@ -1,5 +1,5 @@
 ---
-title: "Hello YUWEN"
+title: "The factors that afeect the covid-19"
 author: "YUWEN WU"
 date: 2020-09-26T21:13:14-05:00
 bibliography: "references.bib"
@@ -11,39 +11,66 @@ tags: ["R Markdown", "plot", "regression"]
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 # Abstraction
-My abstract. we use @citetidyverse.
+Covid-19 is a series disease around the world which would cause a significant bearing on outcome. There are some factors that would affect the covid-19: Age, Classification, Client Gender, Source of Infection, which could make Canadian prevent and control covid-19 well. Logistic regression model could be used to show the relation between factors and outcome.
 
 
 # Introduction
-My introduction.
+The covid-19 has been lasted for a long time around the world.Toronto government has taken action to prevent covid-19. There should be worse condition and better condition to the patients. The goal of this research is to find which patients have the worse condition and which factors would affect the covid-19 and cause people have high probability of incidence, and use the logistic regression model which belongs to generalized linear model to find the relation between the factors and outcome. The reason why the research is important is that the covid-19 is really dangerous to everyone, which will threat people's lives, so people should avoid them and try to prevent and control covid-19.
 
 # Data introduction
-Introduce the scenario and study obnjective.
-Types of data variables.
+
+_id and Assigned_ID are numeric variables, which are just the identical variable, so we will drop them.Outbreak Associated is a categorical variable, which conneted the outbreak of covid-19 and toronto health care service, we will drop it. Age group is a categorical variable and it shows the age of the patients. Nabourhood Name is  categocial variable which shows patients' different society and we will drop it. FSA, Episode date and Reported Date cannot show patients' out come clearly, so drop them. Source of Infection is an important categorical variable, which illustrates potential acquisition sources. Client Gender is categorical variable which shows different gender has different number of patients. Currently hospitalized and ever hospitalized, currently in ICU and ever in ICU, Currently intubated and ever intubated could be divided into three different group  are categorical variables, the two variable in the group can show different distrbution just like the figure in the following. 
+
+We use @CitekeyMisc.
+
+```{r}
+install.packages("opendatatoronto")
+library(opendatatoronto)
+library(dplyr)
+library(tidyverse)
+ 
+# get package
+package <- show_package("64b54586-6180-4485-83eb-81e8fae3b8fe")
+package
+ 
+# get all resources for this package
+resources <- list_package_resources("64b54586-6180-4485-83eb-81e8fae3b8fe")
+ 
+# identify datastore resources; by default, Toronto Open Data sets datastore resource format to CSV for non-geospatial and GeoJSON for geospatial resources
+datastore_resources <- filter(resources, tolower(format) %in% c('csv', 'geojson'))
+ 
+# load the first datastore resource as a sample
+data <- filter(datastore_resources, row_number()==1) %>% get_resource()
+
+glimpse(data)
+
+par(mfrow = c(2,2))
+ggplot(data = data, aes(x = `Age Group` )) + geom_bar() + theme(text = element_text(size=6))
+
+ggplot(data = data, aes(x = `Classification` )) + geom_bar() + theme(text = element_text(size=6))
+
+ggplot(data = data, aes(x = `Client Gender` )) + geom_bar() + theme(text = element_text(size=6))
+
+ggplot(data = data, aes(x = `Source of Infection` )) + geom_bar() + theme(text = element_text(size=6))
 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+par(mfrow = c(3,2))
+ggplot(data = data, aes(x = `Ever Hospitalized` )) + geom_bar() + theme(text = element_text(size=6))
 
-You can embed an R code chunk like this:
+ggplot(data = data, aes(x = `Currently Hospitalized` )) + geom_bar() + theme(text = element_text(size=6))
 
-```{r cars}
-summary(cars)
-fit <- lm(dist ~ speed, data = cars)
-fit
+ggplot(data = data, aes(x = `Currently Intubated` )) + geom_bar() + theme(text = element_text(size=6))
+
+ggplot(data = data, aes(x = `Ever in ICU` )) + geom_bar() + theme(text = element_text(size=6))
+
+ggplot(data = data, aes(x = `Ever Intubated` )) + geom_bar() + theme(text = element_text(size=6))
+
+
 ```
+Since most of the variables are categorical variables, bar-plot can be used to show their frequently happen or rarely happen.
 
-# Including Plots
-
-You can also embed plots. See Figure \@ref(fig:pie) for example:
-
-```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
-par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
-  col = c('#0292D8', '#F7EA39', '#C4B632'),
-  init.angle = -50, border = NA
-)
-```
+# Weaknesses
+Since we use generalized linear model, we should assume all the variables are independent, which would affect our final model. Also, in the dataset, most of the variables are categorical, however, we may cahge some of them to numeric variable such as Age Group, which would help our model be better.
 
 # Reference
+
